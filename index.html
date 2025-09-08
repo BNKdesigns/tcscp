@@ -1,1 +1,463 @@
-not available
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tehran Containment">
+    <meta property="og:description" content="جایی که خطر واقعی است.">
+    <meta property="og:image" content="https://tcscp.ir/fallbannertcscp.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tehran Containment">
+    <meta name="twitter:description" content="جایی که خطر واقعی است.">
+    <meta name="twitter:image" content="https://tcscp.ir/fallbannertcscp.png">
+    <title>Tehran Containment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #0d0d0d;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.4) blur(1px);
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+        }
+
+        .navbar-item {
+            @apply text-white transition-colors duration-300;
+        }
+
+        .navbar-item:hover {
+            color: #c0c0c0;
+        }
+        
+        .btn-primary {
+            @apply bg-red-600 text-white shadow-lg hover:bg-red-700;
+        }
+
+        .btn-secondary {
+            @apply bg-white text-gray-800 shadow-lg hover:bg-[#c0c0c0] px-6 py-2 rounded-full font-bold transition-all duration-300 transform hover:scale-105;
+        }
+
+        .btn-link {
+            @apply bg-transparent border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white;
+        }
+
+        .glow {
+            animation: glow-red 1.5s ease-in-out infinite alternate;
+        }
+
+        .rank-glow {
+            animation: rank-glow-red 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow-red {
+            from {
+                text-shadow: 0 0 5px #dc2626;
+            }
+            to {
+                text-shadow: 0 0 20px #dc2626, 0 0 30px #dc2626;
+            }
+        }
+
+        @keyframes rank-glow-red {
+            from {
+                box-shadow: 0 0 5px #00FF88;
+            }
+            to {
+                box-shadow: 0 0 20px #00FF88;
+            }
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #1a1a1a;
+            padding: 2rem;
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .close-button {
+            @apply text-red-500 hover:text-red-700 transition-colors duration-300 font-bold text-xl;
+        }
+
+    </style>
+</head>
+<body class="font-vazir">
+
+    <div class="background-image-container">
+        <img class="background-image" src="https://tcscp.ir/bg.png" alt="Background Image">
+    </div>
+
+    <div class="container mx-auto px-4 sm:px-16 md:px-24 lg:px-32">
+
+        <header class="fixed top-6 left-1/2 -translate-x-1/2 w-11/12 max-w-7xl z-50 py-4 px-6 backdrop-filter backdrop-blur-lg bg-white bg-opacity-10 border border-transparent rounded-full shadow-lg">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="https://acc.tcscp.ir" class="btn btn-primary">ورود / ثبت نام</a>
+                <div class="flex-1 flex justify-center items-center space-x-6 space-x-reverse hidden sm:flex">
+                    <a href="https://tcscp.ir/rules" class="navbar-item">قوانین</a>
+                    <a href="#ranks" class="navbar-item">فروشگاه</a>
+                    <a href="#about" class="navbar-item">درباره ما</a>
+                </div>
+                <div class="flex items-center">
+                    <img src="https://tcscp.ir/tclogo.png" alt="Server Logo" class="h-10 w-auto rounded-md">
+                </div>
+            </div>
+            <div class="sm:hidden flex justify-center mt-4">
+                <div class="flex justify-center items-center space-x-6 space-x-reverse">
+                    <a href="https://tcscp.ir/rules" class="navbar-item">قوانین</a>
+                    <a href="#ranks" class="navbar-item">فروشگاه</a>
+                    <a href="#about" class="navbar-item">درباره ما</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex flex-col items-center justify-center text-center min-h-screen py-48 px-8">
+            <div class="max-w-4xl">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-red-500 mb-2">
+                    تهران کانتینمنت
+                </h1>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-100 mb-6">
+                     <span class="block sm:inline glow">جایی که خطر واقعی است.</span>
+                </h2>
+                <p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-8">
+                    آیا آماده رویارویی با اس سی پی ها هستید؟ تهران کانتینمنت، سروری برای بازیکنان SCP: Secret Laboratory است که به دنبال تجربه‌ای متفاوت و هیجان‌انگیز هستند. با قوانین منحصر به فرد و کامیونیتی ای فعال، ما به شما مکانی برای بازی و رقابت پیشنهاد می‌ دهیم.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 sm:space-x-reverse">
+                    <div class="bg-gray-800 bg-opacity-50 border border-gray-700 rounded-full px-4 py-2 flex items-center space-x-2 space-x-reverse">
+                        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                        <span id="player-count">
+                            در حال دریافت تعداد بازیکنان...
+                        </span>
+                    </div>
+                    <a href="https://store.steampowered.com/app/700330/SCP_Secret_Laboratory/" class="bg-[rgb(239,68,68)] text-white shadow-lg px-6 py-2 rounded-full font-bold transition-all duration-300 transform hover:scale-105">
+                        دانلود بازی
+                    </a>
+                    <a href="#" id="copy-ip-button" class="bg-white text-gray-800 shadow-lg px-6 py-2 rounded-full font-bold transition-all duration-300 transform hover:scale-105">
+                        کپی آی‌پی سرور
+                    </a>
+                </div>
+            </div>
+        </main>
+        
+        <div id="ip-modal" class="modal">
+            <div class="modal-content text-right">
+                <div class="flex justify-between items-center mb-4">
+                    <h4 class="text-2xl font-bold text-white">کپی آی‌پی سرور</h4>
+                    <button class="close-button" onclick="closeModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="space-y-4">
+                    <button class="w-full text-left p-4 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all duration-300" data-ip="scp.tcscp.ir:42931" dir="ltr">
+                        <span class="text-lg font-bold text-white-500">Modded</span>
+                        <br>
+                        <span class="text-sm text-gray-400">scp.tcscp.ir:42931</span>
+                    </button>
+                    <button class="w-full text-left p-4 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all duration-300" data-ip="scp.tcscp.ir:54291" dir="ltr">
+                        <span class="text-lg font-bold text-white-500">Classic</span>
+                        <br>
+                        <span class="text-sm text-gray-400">scp.tcscp.ir:54291</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <section id="ranks" class="w-full mt-20 px-8">
+            <h3 class="text-4xl font-bold text-center text-white mb-10">
+                رنک‌ها
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-black bg-opacity-50 p-8 rounded-[2rem] border-2 border-[#00FF88] border-opacity-30 shadow-2xl flex flex-col items-center text-center transform transition-all duration-300 hover:scale-105 hover:border-opacity-100 rank-glow">
+                    <h4 class="text-2xl font-bold mb-4 text-white">Super Vionera</h4>
+                    <img src="https://tcscp.ir/supervionerabanner.png" alt="Super Vionera Banner" class="w-full rounded-2xl mb-4 aspect-video">
+                    <ul class="text-right list-disc space-y-2 text-gray-400 w-full px-4">
+                        <li>داشتن کیت</li>
+                        <li>دسترسی به دستور های لکسورا</li>
+                        <li>نقش های خاص در بازی</li>
+                        <div id="superVioneraFeatures" class="hidden space-y-2">
+                            <li>دسترسی به قابلیت های رنک های دیگر</li>
+                            <p class="mt-4 text-white text-right">کیت سوپر ویونرا:</p>
+                            <ul class="list-disc space-y-1 pr-4">
+                                <li><b>ClassD:</b> MTF Captain keycard & Medkit + Adrenaline</li>
+                                <li><b>Scientist:</b> MTF Captain keycard & Medkit + Adrenaline</li>
+                                <li><b>Facility guard:</b> MTF Captain keycard & Medkit + Adrenaline & E11 SR Gun & Heavy Armor</li>
+                            </ul>
+                        </div>
+                    </ul>
+                    <button onclick="toggleFeatures('superVioneraFeatures', this)" class="mt-4 text-white hover:text-gray-300 transition-colors duration-300">
+                        نمایش بیشتر
+                    </button>
+                    <div class="my-4 w-full text-center">
+                        <div class="flex justify-center space-x-4 space-x-reverse mb-2">
+                            <span class="text-2xl font-black text-white">۳۰۰,۰۰۰ تومان</span>
+                            <span class="text-lg text-gray-400">یک ماه</span>
+                        </div>
+                        <div class="flex justify-center space-x-4 space-x-reverse">
+                            <span class="text-2xl font-black text-white">۷۶۰,۰۰۰ تومان</span>
+                            <span class="text-lg text-gray-400">سه ماه</span>
+                        </div>
+                    </div>
+                    <a href="https://discord.tcscp.ir" class="btn w-full btn-primary">
+                        خرید
+                    </a>
+                </div>
+                <div class="bg-black bg-opacity-50 p-8 rounded-[2rem] border-2 border-[#BF00FF] border-opacity-30 shadow-2xl flex flex-col items-center text-center transform transition-all duration-300 hover:scale-105 hover:border-opacity-100">
+                    <h4 class="text-2xl font-bold mb-4 text-white">VPrime</h4>
+                    <img src="https://tcscp.ir/vprimebanner.png" alt="VPrime Banner" class="w-full rounded-2xl mb-4 aspect-video">
+                    <ul class="text-right list-disc space-y-2 text-gray-400 w-full px-4">
+                        <li>داشتن کیت</li>
+                        <li>دسترسی به دستور های لکسورا</li>
+                        <li>نقش های خاص در بازی</li>
+                        <div id="vPrimeFeatures" class="hidden space-y-2">
+                            <li>دسترسی به قابلیت های رنک کلاسیک</li>
+                            <p class="mt-4 text-white text-right">کیت وپرایم:</p>
+                            <ul class="list-disc space-y-1 pr-4">
+                                <li><b>ClassD:</b> MTF Opertive keycard & Medkit + Adrenaline</li>
+                                <li><b>Scientist:</b> MTF Operative keycard & Medkit + Adrenaline</li>
+                                <li><b>Facility guard:</b> MTF Operative keycard & Medkit + Adrenaline & Crossvec gun & Combat Armor</li>
+                            </ul>
+                        </div>
+                    </ul>
+                    <button onclick="toggleFeatures('vPrimeFeatures', this)" class="mt-4 text-white hover:text-gray-300 transition-colors duration-300">
+                        نمایش بیشتر
+                    </button>
+                    <div class="my-4 w-full text-center">
+                        <div class="flex justify-center space-x-4 space-x-reverse mb-2">
+                            <span class="text-2xl font-black text-white">۲۰۰,۰۰۰ تومان</span>
+                            <span class="text-lg text-gray-400">یک ماه</span>
+                        </div>
+                        <div class="flex justify-center space-x-4 space-x-reverse">
+                            <span class="text-2xl font-black text-white">۵۳۰,۰۰۰ تومان</span>
+                            <span class="text-lg text-gray-400">سه ماه</span>
+                        </div>
+                    </div>
+                    <a href="https://discord.tcscp.ir" class="btn w-full btn-primary">
+                        خرید
+                    </a>
+                </div>
+                <div class="bg-black bg-opacity-50 p-8 rounded-[2rem] border-2 border-[#00F6FF] border-opacity-30 shadow-2xl flex flex-col items-center text-center transform transition-all duration-300 hover:scale-105 hover:border-opacity-100">
+                    <h4 class="text-2xl font-bold mb-4 text-white">VPrime Classic</h4>
+                    <img src="https://tcscp.ir/vprimeclassicbanner.png" alt="VPrime Classic Banner" class="w-full rounded-2xl mb-4 aspect-video">
+                    <ul class="text-right list-disc space-y-2 text-gray-400 w-full px-4">
+                        <li>داشتن کیت</li>
+                        <li>دسترسی به دستور های لکسورا</li>
+                        <li>نقش های خاص در بازی</li>
+                        <div id="vPrimeClassicFeatures" class="hidden space-y-2">
+                            <p class="mt-4 text-white text-right">کیت وپرایم کلاسیک:</p>
+                            <ul class="list-disc space-y-1 pr-4">
+                                <li><b>ClassD:</b> MTF Private keycard & Medkit</li>
+                                <li><b>Scientist:</b> MTF Private keycard & Medkit</li>
+                                <li><b>Facility guard:</b> MTF Private keycard & Medkit</li>
+                            </ul>
+                        </div>
+                    </ul>
+                    <button onclick="toggleFeatures('vPrimeClassicFeatures', this)" class="mt-4 text-white hover:text-gray-300 transition-colors duration-300">
+                        نمایش بیشتر
+                    </button>
+                    <div class="my-4 w-full text-center">
+                        <div class="flex justify-center space-x-4 space-x-reverse mb-2">
+                            <span class="text-2xl font-black text-white">۹۰,۰۰۰ تومان</span>
+                            <span class="text-lg text-gray-400">یک ماه</span>
+                        </div>
+                        <div class="flex justify-center space-x-4 space-x-reverse">
+                            <span class="text-2xl font-black text-white">۲۳۰,۰۰۰ تومان</span>
+                            <span class="text-lg text-gray-400">سه ماه</span>
+                        </div>
+                    </div>
+                    <a href="https://discord.tcscp.ir" class="btn w-full btn-primary">
+                        خرید
+                    </a>
+                </div>
+                <div class="bg-black bg-opacity-50 p-8 rounded-[2rem] border-2 border-[#FF00E5] border-opacity-30 shadow-2xl flex flex-col items-center text-center transform transition-all duration-300 hover:scale-105 hover:border-opacity-100">
+                    <h4 class="text-2xl font-bold mb-4 text-white">Booster</h4>
+                    <img src="https://tcscp.ir/boosterbanner.png" alt="Booster Banner" class="w-full rounded-2xl mb-4 aspect-video">
+                    <ul class="text-right list-disc space-y-2 text-gray-400 w-full px-4">
+                        <li>داشتن کیت</li>
+                        <div id="boosterFeatures" class="hidden space-y-2">
+                            <p class="mt-4 text-white text-right">کیت بوستر:</p>
+                            <ul class="list-disc space-y-1 pr-4">
+                                <li><b>ClassD:</b> MTF Researcher keycard</li>
+                                <li><b>Scientist:</b> Researcher keycard</li>
+                            </ul>
+                        </div>
+                    </ul>
+                    <button onclick="toggleFeatures('boosterFeatures', this)" class="mt-4 text-white hover:text-gray-300 transition-colors duration-300">
+                        نمایش بیشتر
+                    </button>
+                    <p class="text-xl font-bold text-center text-[#FF00E5] my-4">
+                        این رنک با بوست کردن سرور دیسکورد ما دریافت می‌شود.
+                    </p>
+                    <a href="https://discord.tcscp.ir" class="btn w-full btn-primary">
+                        خرید
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="w-full mt-20 pb-10 px-8">
+            <h3 class="text-4xl font-bold text-center text-white mb-6">
+                درباره ما
+            </h3>
+            <div class="bg-white bg-opacity-5 p-8 rounded-2xl shadow-xl border border-white border-opacity-10">
+                <p class="text-lg text-gray-300 leading-relaxed text-center">
+                    تهران کانتینمنت در سال ۱۴۰۱ با هدف ایجاد تجربه‌ای متفاوت و جذاب برای بازیکنان SCP: Secret Laboratory تأسیس شد. ما به دنبال ایجاد یک کامیونیتی دوستانه و رقابتی هستیم که در آن بازیکنان بتوانند از بازی لذت ببرند. ما به طور مداوم در حال بهبود سرور و اضافه کردن ویژگی‌های جدید هستیم تا بهترین تجربه ممکن را برای شما فراهم کنیم. به جمع ما بپیوندید و بخشی از این ماجراجویی باشید.
+                </p>
+            </div>
+        </section>
+
+        <section class="w-full mt-20 pb-10 px-8">
+            <div class="flex flex-col items-center text-center">
+                <h3 class="text-3xl font-bold text-white mb-6">ما را در شبکه‌های اجتماعی دنبال کنید</h3>
+                <div class="flex space-x-6 space-x-reverse text-4xl text-gray-400">
+                    <a href="https://instagram.com/tehrancontainment" class="hover:text-white transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+                    <a href="https://discord.tcscp.ir" class="hover:text-white transition-colors duration-300"><i class="fab fa-discord"></i></a>
+                    <a href="https://t.me/tehrancontainment" class="hover:text-white transition-colors duration-300"><i class="fab fa-telegram-plane"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 py-6 border-t border-gray-700 mt-10 px-8">
+            <p>&copy; 1404 Tehran Containment. تمامی حقوق محفوظ است.</p>
+          made by BNKdesigns with <3
+        </footer>
+
+    </div>
+    
+    <script>
+        function toggleFeatures(id, button) {
+            const featuresDiv = document.getElementById(id);
+            featuresDiv.classList.toggle('hidden');
+            button.textContent = featuresDiv.classList.contains('hidden') ? 'نمایش بیشتر' : 'نمایش کمتر';
+        }
+
+        async function fetchPlayerCount() {
+            const serverId = "93965";
+            const playerCountElement = document.getElementById('player-count');
+            try {
+                const proxyUrl = 'https://api.allorigins.win/raw?url=';
+                const targetUrl = `https://api.scplist.kr/api/servers/${serverId}`;
+                
+                const response = await fetch(proxyUrl + encodeURIComponent(targetUrl));
+                const data = await response.json();
+
+                if (data && data.players) {
+                    const playersString = data.players;
+                    const currentPlayers = playersString.split('/')[0];
+                    playerCountElement.textContent = `${currentPlayers} بازیکن آنلاین`;
+                } else {
+                    playerCountElement.textContent = 'اطلاعات در دسترس نیست';
+                }
+            } catch (error) {
+                console.error("Failed to fetch player count:", error);
+                playerCountElement.textContent = 'خطا در دریافت اطلاعات';
+            }
+        }
+
+        window.onload = fetchPlayerCount;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            const copyIpButton = document.getElementById('copy-ip-button');
+            const ipModal = document.getElementById('ip-modal');
+            const ipButtons = ipModal.querySelectorAll('[data-ip]');
+            
+            copyIpButton.addEventListener('click', () => {
+                ipModal.style.display = 'flex';
+            });
+            
+            ipButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const ip = event.currentTarget.getAttribute('data-ip');
+                    copyToClipboard(ip);
+                    closeModal();
+                });
+            });
+        });
+        
+        function closeModal() {
+            const ipModal = document.getElementById('ip-modal');
+            ipModal.style.display = 'none';
+        }
+        
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                alert('آی‌پی کپی شد: ' + text);
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                alert('خطا در کپی کردن آی‌پی. لطفا به صورت دستی کپی کنید: ' + text);
+            }
+            document.body.removeChild(textarea);
+        }
+        
+        window.alert = function(message) {
+            const alertModal = document.createElement('div');
+            alertModal.className = 'fixed inset-0 z-[200] flex items-center justify-center bg-black bg-opacity-70 backdrop-blur-sm';
+            alertModal.innerHTML = `
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg w-11/12 max-w-sm text-center">
+                    <p class="text-white text-lg mb-4">${message}</p>
+                    <button class="bg-red-600 text-white px-6 py-2 rounded-full font-bold hover:bg-red-700 transition-colors" onclick="this.parentElement.parentElement.remove()">باشه</button>
+                </div>
+            `;
+            document.body.appendChild(alertModal);
+        };
+        
+    </script>
+</body>
+</html>
